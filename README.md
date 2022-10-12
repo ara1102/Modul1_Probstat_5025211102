@@ -5,6 +5,8 @@
 ## Soal No 1
 >Seorang penyurvei secara acak memilih orang-orang di jalan sampai dia bertemu dengan seseorang yang menghadiri acara vaksinasi sebelumnya.
 
+<img width="944" alt="image" src="https://user-images.githubusercontent.com/103795644/195336811-67923a36-9218-41a0-be2c-18dbbb204918.png">
+
 ### 1A
 >Berapa peluang penyurvei bertemu x = 3 orang yang tidak menghadiri acara vaksinasi  sebelum keberhasilan pertama ketika p = 0,20 dari populasi menghadiri acara vaksinasi ? (distribusi Geometrik)
  
@@ -12,10 +14,9 @@
 # 1A
 x = 3
 p = 0.20
-prob <- dgeom(x,p)
-prob
+probA <- dgeom(x,p)
+probA
  ```
- <img width="941" alt="image" src="https://user-images.githubusercontent.com/103795644/195331623-995432c2-79cc-4bbe-9d14-8b4bc20394af.png">
 
 Soal ini dijawab menggunakan fungsi dgeom() yang akan me-return-kan value pdf dari distribusi geometrik. Fungsi ini dapat menghitung probabilitas suatu kejadian yang mengalami sejumlah kegagalan sebelum mengalami kesuksesan pertama. Variabel x adalah banyak orang yang tidak menghadiri acara vaksinasi sebelum keberhasilan pertama.
 Variabel p adalah peluang populasi menghadiri acara vaksinasi. Hasil probabilitas yang didapatkan dari fungsi dgeom() adalah 0.1024
@@ -27,10 +28,9 @@ Variabel p adalah peluang populasi menghadiri acara vaksinasi. Hasil probabilita
 # 1B
 n = 10000
 p = 0.20
-prob <- mean(rgeom(n, p) == 3)
-prob
+probB <- mean(rgeom(n, p) == 3)
+probB
  ```
-<img width="944" alt="image" src="https://user-images.githubusercontent.com/103795644/195331729-f40303ad-f8e6-421e-bf2e-2f138b183b6c.png">
 
 Soal ini dijawab dengan menggunakan fungsi rgeom(). Fungsi ini menghasilkan nilai variabel random dari distribusi geometrik. Nilai mean yang dihasilkan fungsi tersebut didapatkan selalu berubah-ubah karena nilai yang dihasilkan fungsi rgeom() juga selalu berubah-ubah. Salah satu hasilnya adalah sebesar 0.1022
 
@@ -43,7 +43,6 @@ Hasil yang didapatkan pada poin a dan poin b berbeda. Hasil pada poin A didapatk
 >Histogram Distribusi Geometrik , Peluang X = 3 gagal Sebelum Sukses Pertama
 
  ```R
- # 1D
 library(dplyr)
 library(ggplot2)
 
@@ -63,6 +62,22 @@ geom_text(
   labs(title = "Peluang X = 3 Gagal Sebelum Sukses Pertama",
        x = "Kegagalan sebelum sukses pertama (x)",
        y = "Peluang") 
+
  ```
  
  ![image](https://user-images.githubusercontent.com/103795644/195332953-fa5800db-f109-45e7-86c3-082cfdecdbfc.png)
+ 
+ ### 1E
+ > Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Geometrik
+ 
+  ```R
+# 1E
+rataan = 1/p
+rataan
+varian = (1-p)/(p^2)
+varian
+ ```
+
+Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
+ 
+
