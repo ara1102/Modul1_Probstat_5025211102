@@ -264,3 +264,47 @@ varian = (sd(rexp(n, rate = lamda))) ^ 2
 varian
  ```
 Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
+
+## Soal No 6
+>Diketahui generate random nilai sebanyak 100 data, mean = 50, sd = 8. Tentukan
+
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/103795644/195377585-311726a5-aead-458f-ae03-51a93540781a.png">
+
+
+### 6A
+>Fungsi Probabilitas dari Distribusi Normal P(X1 ≤ x ≤ X2), hitung Z-Score Nya dan plot data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
+ ```R
+ # 6A
+n <- 100
+m <- 50
+std.deviasi <- 8
+set.seed(100)
+random <- rnorm(100)
+rata <- mean(random)
+x1 <- floor(rata)
+x2 <- ceiling(rata)
+
+z1 <- (x1 - m) / std.deviasi
+z2 <- (x2 - m) / std.deviasi
+
+prob =rnorm(n = 100, mean = m, sd = std.deviasi)
+prob
+ ```
+
+### 6B
+> Generate Histogram dari Distribusi Normal dengan breaks 50 dan format penamaan: NRP_Nama_Probstat_{Nama Kelas}_DNhistogram
+```R
+# 6B
+hist(rnorm(n = 100, mean = m, sd = std.deviasi), xlab="x", ylab="y" ,breaks = 50,
+     main = "5025211102_Adhira Riyanti Amanda_Probstat_A_DNhistogram")
+```
+![image](https://user-images.githubusercontent.com/103795644/195377290-ca2edd8c-cdc3-4848-8cf7-6a13ea64635f.png)
+
+### 6C
+>Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
+```R
+# 6C
+varians = std.deviasi ** 2
+varians
+```
+Nilai varian dapat dicari menggunakan rumus varian diatas
