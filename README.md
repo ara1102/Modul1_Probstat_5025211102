@@ -131,3 +131,56 @@ varian
  ```
 Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
 
+## Soal No 3
+>Diketahui data dari  sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis 4,5 bayi lahir di rumah sakit ini setiap hari. (gunakan Distribusi Poisson)
+
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/103795644/195361579-5af7a82d-5f94-4f5a-aa24-e98114b94424.png">
+
+### 3A
+>Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
+ ```R
+ # 3A
+lamda = 4.5
+nA = 6
+prob <- dpois(nA, lamda)
+prob
+ ```
+Soal ini dijawab menggunakan distribusi poisson dengan memanfaatkan fungsi dpois(). Fungsi tersebut berisi variabel nA (banyak bayi lahir di rumah sakit besok) dan lamda (rata-rata historis bayi lahir di rumah sakit setiap hari) sebagai parameternya. Fungsi ini akan me-return-kan value pdf dari distribusi poisson. Hasil peluang yang didapatkan adalah sebesar 0.1281201
+
+### 3B
+>Simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini  selama setahun (n = 365)
+ ```R
+ # 3B
+ set.seed(2)
+
+poisson_data  <- data.frame('data' = rpois(365, lamda))
+
+poisson_data  %>% ggplot() +
+  geom_histogram(aes(x = data,
+                     y = stat(count / sum(count)),
+                     fill = data == nA),
+                 binwidth = 1,
+                 color = 'black',) +
+  scale_x_continuous(breaks = 0:10) + 
+  labs(x = 'Banyak kelahiran per periode',
+       y = 'Proporsi',
+       title = 'Distribusi Poisson untuk kelahiran bayi dalam 1 tahun') +
+  theme_bw()
+   ```
+![image](https://user-images.githubusercontent.com/103795644/195361713-53e9e601-73e8-4477-a8d9-47d06d743e95.png)
+
+### 3C
+>Bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan?
+Hasil pada poin A dan B hampir sama. Hal ini dapat terjadi karena nilai A berada di dalam range B. Kesimpulannya adalah dalam estimasi selama 1 tahun(365 hari) akan memberikan hasil yang hampir sama dengan estimasi jumlah bayi yang akan dilahirkan di esok hari.
+
+### 3D
+>Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
+ ```R
+ # 3D
+rataan = lamda
+rataan
+varians = lamda
+varians
+ ```
+Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
+
