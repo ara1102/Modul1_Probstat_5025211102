@@ -184,3 +184,41 @@ varians
  ```
 Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
 
+## Soal No 4
+> Diketahui nilai x = 2 dan v = 10. Tentukan:
+
+<img width="942" alt="image" src="https://user-images.githubusercontent.com/103795644/195372459-b30a7a93-82b1-44a0-814d-985d6b30ee37.png">
+
+### 4A
+> Fungsi Probabilitas dari Distribusi Chi-Square.
+ ```R
+ # 4A
+xChi = 2
+v = 10
+prob <- dchisq(xChi, v, ncp = 0, log = FALSE)
+prob
+ ```
+Soal ini dijawab menggunakan distribusi chi-square dengan memanfaatkan fungsi dchisq(). Fungsi tersebut berisi variabel xChi, v, ncp, dan log sebagai parameternya. Fungsi ini akan me-return-kan value pdf dari distribusi chi-square. Hasil peluang yang didapatkan adalah sebesar 0.007664155
+
+### 4B
+>Histogram dari Distribusi Chi-Square dengan 100 data random.
+ ```R
+ # 4B
+x <- rchisq(100, v)
+hist(x, freq = FALSE, xlim = c(0,31), ylim = c(0,0.2), main="Distribusi Chi-Square")
+
+curve(dchisq(x, v), from = 0, to = 30, n = 100, col = "green", lwd = 2, add = TRUE)
+ ```
+![image](https://user-images.githubusercontent.com/103795644/195372546-b07c4a2a-c12e-4f07-9eef-4a50e5752814.png)
+
+### 4C
+>Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Chi-Square.
+ ```R
+ # 4C
+rataan = v
+rataan
+varian = 2*v
+varian
+ ```
+Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
+ 
