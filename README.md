@@ -222,3 +222,45 @@ varian
  ```
 Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
  
+## Soal No 5
+>Diketahui bilangan acak (random variable) berdistribusi exponential (λ = 3). Tentukan
+
+<img width="944" alt="image" src="https://user-images.githubusercontent.com/103795644/195375331-8b5c774b-28d5-4bf2-8034-f701ebe8fc98.png">
+
+### 5A
+>Fungsi Probabilitas dari Distribusi Exponensial 
+ ```R
+ # 5A
+lamda = 3
+prob <- dexp(lamda, rate = 1, log = FALSE)
+prob
+ ```
+Soal ini dijawab menggunakan distribusi exponensial dengan memanfaatkan fungsi dexp(). Fungsi tersebut berisi variabel lamda, rate, dan log sebagai parameternya. Fungsi ini akan me-return-kan value pdf dari distribusi exponensial. Hasil peluang yang didapatkan adalah sebesar 0.04978707
+
+### 5B
+>Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
+ ```R
+# 5B
+par(mfrow = c(2,2))
+set.seed(1)
+hist(rexp(10, lamda), main = "Distribution Exponensial")
+hist(rexp(100,lamda), main = "Distribution Exponensial")
+hist(rexp(1000, lamda), main = "Distribution Exponensial")
+hist(rexp(10000,lamda), main = "Distribution Exponensial")
+ ```
+![image](https://user-images.githubusercontent.com/103795644/195374752-8560d848-9adb-42cb-a2ca-21e502a7c5d4.png)
+
+### 5C
+>Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Exponensial untuk n = 100 dan λ = 3
+ ```R
+ # 5C
+n = 100
+set.seed(1)
+mean = mean(rexp(n, rate = lamda))
+mean
+
+set.seed(1)
+varian = (sd(rexp(n, rate = lamda))) ^ 2
+varian
+ ```
+Nilai rataan dan varian dapat dicari menggunakan rumus rataan dan varian diatas
